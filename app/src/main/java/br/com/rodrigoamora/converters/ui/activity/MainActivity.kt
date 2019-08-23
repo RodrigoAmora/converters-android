@@ -1,6 +1,5 @@
 package br.com.rodrigoamora.converters.ui.activity
 
-import android.app.Fragment
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -9,7 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import br.com.rodrigoamora.converters.R
-import br.com.rodrigoamora.converters.ui.fragment.CelsiusToFarenheitFragment
+import br.com.rodrigoamora.converters.ui.fragment.CelsiusToFahrenheitFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        val imageFragment = CelsiusToFarenheitFragment()
+        val imageFragment = CelsiusToFahrenheitFragment()
         val manager =  supportFragmentManager
         val transaction = manager.beginTransaction()
         transaction.add(R.id.container, imageFragment)
