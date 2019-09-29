@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
             R.id.action_settings -> {
-                
+                changeFragment(AboutFragment())
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
