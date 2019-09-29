@@ -13,7 +13,7 @@ class AboutFragment : Fragment() {
 
     var myView: View? = null
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_celsius_to_farenheit, container, false)
         var versionName = getVersionName()
         label_version.setText(versionName.toString())
@@ -22,8 +22,6 @@ class AboutFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        var versionName = getVersionName()
-//        label_verion.setText(versionName.toString())
     }
 
     fun getVersionName(): String {

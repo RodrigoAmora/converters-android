@@ -2,13 +2,13 @@ package br.com.rodrigoamora.converters.ui.activity
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
-import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import br.com.rodrigoamora.converters.R
+import br.com.rodrigoamora.converters.extensions.changeFragment
 import br.com.rodrigoamora.converters.ui.fragment.AboutFragment
 import br.com.rodrigoamora.converters.ui.fragment.TemperatureFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        changeFragment(TemperatureFragment())
+        changeFragment(TemperatureFragment(), this)
     }
 
     override fun onBackPressed() {
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
             R.id.action_settings -> {
-                changeFragment(AboutFragment())
+                changeFragment(AboutFragment(), this)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_temperature -> {
-                changeFragment(TemperatureFragment())
+                changeFragment(TemperatureFragment(), this)
             }
             R.id.nav_share -> {
 
@@ -82,11 +82,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    fun changeFragment(fragment: Fragment) {
-        val manager =  supportFragmentManager
-        val transaction = manager.beginTransaction()
-        transaction.add(R.id.container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
 }
