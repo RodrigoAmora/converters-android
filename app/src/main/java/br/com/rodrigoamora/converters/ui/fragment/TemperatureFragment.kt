@@ -25,8 +25,8 @@ class TemperatureFragment : Fragment() {
         convert.setAdapter(arrayAdapter)
 
         bt_convert.setOnClickListener{
-            var converterSelected = convert.selectedItemPosition
-            var temperatureConverter = TemperatureConverter()
+            val converterSelected = convert.selectedItemPosition
+            val temperatureConverter = TemperatureConverter()
 
             var temperatureConverted:Double = 0.0
             if (converterSelected == 0) {
