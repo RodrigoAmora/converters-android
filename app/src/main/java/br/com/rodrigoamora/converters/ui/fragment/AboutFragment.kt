@@ -11,17 +11,13 @@ import kotlinx.android.synthetic.main.fragment_about.*
 
 class AboutFragment : Fragment() {
 
-    var myView: View? = null
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_celsius_to_farenheit, container, false)
-        var versionName = getVersionName()
-        label_version.setText(versionName.toString())
-        return view
+        return inflater.inflate(R.layout.fragment_about, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        label_version.setText(getVersionName().toString())
     }
 
     fun getVersionName(): String {

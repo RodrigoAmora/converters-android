@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        changeFragment(TemperatureFragment(), this)
+        changeFragment(TemperatureFragment(), this, R.id.container, null)
     }
 
     override fun onBackPressed() {
@@ -56,12 +56,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
-            R.id.action_settings -> {
-                changeFragment(AboutFragment(), this)
-                return true
+            R.id.action_about -> {
+                changeFragment(AboutFragment(), this, R.id.container, null)
+
             }
             else -> return super.onOptionsItemSelected(item)
         }
+
+        return true
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -71,7 +73,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_temperature -> {
-                changeFragment(TemperatureFragment(), this)
+                changeFragment(TemperatureFragment(), this, R.id.container, null)
             }
             R.id.nav_share -> {
 

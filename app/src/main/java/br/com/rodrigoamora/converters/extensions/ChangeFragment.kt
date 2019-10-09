@@ -1,13 +1,19 @@
 package br.com.rodrigoamora.converters.extensions
 
+import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import br.com.rodrigoamora.converters.R
 
-fun changeFragment(fragment: Fragment, fragmentManager: AppCompatActivity) {
+fun changeFragment(fragment: Fragment, fragmentManager: AppCompatActivity, container: Int, params: Bundle?) {
     val manager = fragmentManager.supportFragmentManager
+
     val transaction = manager.beginTransaction()
-    transaction.add(R.id.container, fragment)
+    transaction.replace(container, fragment)
     transaction.addToBackStack(null)
+
+    if (params != null) {
+        fragment.arguments = params
+    }
+
     transaction.commit()
 }
