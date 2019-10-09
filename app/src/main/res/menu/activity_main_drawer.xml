@@ -8,13 +8,14 @@
             android:id="@+id/nav_temperature"
             android:icon="@drawable/ic_temperature"
             android:title="@string/temperature" />
+
         <item
             android:id="@+id/nav_distance"
             android:icon="@drawable/ic_distance"
             android:title="@string/distance" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
