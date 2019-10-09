@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Button
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.converter.TemperatureConverter
 import kotlinx.android.synthetic.main.fragment_celsius_to_farenheit.*
@@ -19,6 +18,10 @@ class TemperatureFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        initViews()
+    }
+
+    private fun initViews() {
         val list = listOf(getString(R.string.celsius_to_fahrenheit), getString(R.string.fahrenheit_to_celsius))
 
         val arrayAdapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, list)
@@ -38,5 +41,4 @@ class TemperatureFragment : Fragment() {
             result.setText(temperatureConverted.toString())
         }
     }
-
 }
