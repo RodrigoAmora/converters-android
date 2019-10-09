@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        createToolbarAndActionBar()
+        createToolbarAndNavigationView()
         changeFragment(TemperatureFragment(), this, R.id.container, null)
     }
 
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    private fun createToolbarAndActionBar() {
+    private fun createToolbarAndNavigationView() {
         setSupportActionBar(toolbar)
 
         val toggle = ActionBarDrawerToggle(
