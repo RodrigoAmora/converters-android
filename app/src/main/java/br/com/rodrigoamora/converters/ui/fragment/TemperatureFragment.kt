@@ -28,17 +28,25 @@ class TemperatureFragment : Fragment() {
         convert.setAdapter(arrayAdapter)
 
         bt_convert.setOnClickListener{
-            val converterSelected = convert.selectedItemPosition
-            val temperatureConverter = TemperatureConverter()
+            convertTemperature()
+        }
+    }
 
-            var temperatureConverted:Double = 0.0
-            if (converterSelected == 0) {
+    private fun convertTemperature() {
+        val converterSelected = convert.selectedItemPosition
+        val temperatureConverter = TemperatureConverter()
+
+        var temperatureConverted:Double = 0.0
+        when(converterSelected) {
+            0 -> {
                 temperatureConverted = temperatureConverter.celsuisToFahrenheit(temperature.text.toString().toDouble())
-            } else if (converterSelected == 1) {
-                temperatureConverted = temperatureConverter.fahrenheitToCelsuis(temperature.text.toString().toDouble())
             }
 
-            result.setText(temperatureConverted.toString())
+            1 -> {
+                temperatureConverted = temperatureConverter.fahrenheitToCelsuis(temperature.text.toString().toDouble())
+            }
         }
+
+        result.setText(temperatureConverted.toString())
     }
 }
