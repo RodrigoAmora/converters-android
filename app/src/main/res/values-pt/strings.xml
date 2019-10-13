@@ -23,5 +23,6 @@
     <string name="temperture_in_fahrenheit">Temperture em fahrenheit</string>
     <string name="result">Resultado</string>
     <string name="rodrigo_amora">Rodrigo Amora</string>
+    <string name="share">Compartilhar</string>
     <string name="version">Versão:</string>
 </resources>
