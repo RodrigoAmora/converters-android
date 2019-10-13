@@ -57,6 +57,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
+            R.id.nav_about -> {
+                Log.i(TAG_LOG, "nav_about clicked")
+                changeFragment(AboutFragment(), this, R.id.container, null)
+            }
             R.id.nav_distance -> {
                 Log.i(TAG_LOG, "nav_distance clicked")
             }
