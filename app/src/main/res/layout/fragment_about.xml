@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="?attr/actionBarSize"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <TextView
+            android:gravity="center_horizontal"
+            android:text="@string/created_by_rodrigo_amora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <LinearLayout
-            android:orientation="horizontal"
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <LinearLayout
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:text="@string/developer"
-                android:textColor="@android:color/black"
+                android:text="@string/version"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
             <TextView
-                android:paddingLeft="7dp"
-                android:text="@string/rodrigo_amora"
-                android:textColor="@android:color/black"
+                android:id="@+id/version"
+                android:paddingLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -36,15 +44,12 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="@string/lb_email"
-                android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
             <TextView
-                android:paddingLeft="7dp"
                 android:text="@string/email"
-                android:textColor="@android:color/black"
+                android:paddingLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -55,18 +60,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:text="@string/version"
-                android:textColor="@android:color/black"
+                android:text="@string/lb_site"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
             <TextView
-                android:id="@+id/label_version"
-                android:paddingLeft="7dp"
-                android:textColor="@android:color/black"
+                android:text="@string/site"
+                android:paddingLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
