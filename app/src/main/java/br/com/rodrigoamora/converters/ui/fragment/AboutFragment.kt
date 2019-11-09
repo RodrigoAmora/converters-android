@@ -17,7 +17,7 @@ class AboutFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        label_version.setText(getVersionName().toString())
+        lb_version.setText(getVersionName().toString())
     }
 
     fun getVersionName(): String {
