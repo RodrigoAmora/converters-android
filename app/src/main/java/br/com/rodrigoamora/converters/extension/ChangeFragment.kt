@@ -1,4 +1,4 @@
-package br.com.rodrigoamora.converters.extensions
+package br.com.rodrigoamora.converters.extension
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

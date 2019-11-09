@@ -9,7 +9,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import br.com.rodrigoamora.converters.R
-import br.com.rodrigoamora.converters.extensions.changeFragment
+import br.com.rodrigoamora.converters.extension.changeFragment
 import br.com.rodrigoamora.converters.ui.fragment.AboutFragment
 import br.com.rodrigoamora.converters.ui.fragment.TemperatureFragment
 import kotlinx.android.synthetic.main.activity_main.*
