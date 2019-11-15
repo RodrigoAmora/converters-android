@@ -19,12 +19,14 @@
     <string name="fahrenheit_to_celsius">Fahrenheit para Celsius</string>
     <string name="lb_email">E-mail:</string>
     <string name="lb_site">Stie:</string>
+    <string name="link_app">https://play.google.com/store/apps/details?id=br.com.rodrigoamora.converters</string>
     <string name="temperature">Tempertura</string>
     <string name="temperture_in_celsius">Temperture em celsius</string>
     <string name="temperture_in_fahrenheit">Temperture em fahrenheit</string>
     <string name="result">Resultado</string>
     <string name="rodrigo_amora">Rodrigo Amora</string>
     <string name="share">Compartilhar</string>
+    <string name="share_app">Download Converters na Play Store:</string>
     <string name="site">Site: www.rodrigoamora.com.br</string>
     <string name="version">Versão:</string>
 </resources>

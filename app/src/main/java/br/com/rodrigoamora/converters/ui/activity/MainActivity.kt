@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.extension.changeFragment
+import br.com.rodrigoamora.converters.extension.share
 import br.com.rodrigoamora.converters.ui.fragment.AboutFragment
 import br.com.rodrigoamora.converters.ui.fragment.TemperatureFragment
 import com.google.android.material.navigation.NavigationView
@@ -72,6 +73,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_share -> {
                 Log.i(TAG_LOG, "nav_share clicked")
+                val textSahre = getString(R.string.share_app)+" "+
+                                        getString(R.string.link_app)
+                share(this, getString(R.string.app_name), textSahre)
             }
         }
 
