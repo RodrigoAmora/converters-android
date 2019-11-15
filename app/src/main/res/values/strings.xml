@@ -27,5 +27,6 @@
     <string name="share">Share</string>
     <string name="share_app">Download Converters on Play Store:</string>
     <string name="site">Site: www.rodrigoamora.com.br</string>
+    <string name="site2">www.rodrigoamora.com.br</string>
     <string name="version">Version:</string>
 </resources>
