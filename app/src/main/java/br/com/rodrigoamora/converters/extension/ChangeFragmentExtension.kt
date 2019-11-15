@@ -1,8 +1,8 @@
 package br.com.rodrigoamora.converters.extension
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
 fun changeFragment(fragment: Fragment, fragmentManager: AppCompatActivity, container: Int, params: Bundle?) {
     val manager = fragmentManager.supportFragmentManager

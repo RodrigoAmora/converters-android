@@ -1,23 +1,25 @@
 package br.com.rodrigoamora.converters.ui.activity
 
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.extension.changeFragment
 import br.com.rodrigoamora.converters.ui.fragment.AboutFragment
 import br.com.rodrigoamora.converters.ui.fragment.TemperatureFragment
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     val TAG_LOG = "converters-android"
+
+    var drawer_layout :DrawerLayout ? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +29,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
+        if (drawer_layout!!.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout!!.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
@@ -73,12 +75,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
 
-        drawer_layout.closeDrawer(GravityCompat.START)
+        drawer_layout?.closeDrawer(GravityCompat.START)
         return true
     }
 
     private fun createToolbarAndNavigationView() {
+        val toolbar:Toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar)
+
+        drawer_layout = findViewById(R.id.drawer_layout) as DrawerLayout
 
         val toggle = ActionBarDrawerToggle(
                 this,
@@ -87,9 +92,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close)
 
-        drawer_layout.addDrawerListener(toggle)
+        drawer_layout?.addDrawerListener(toggle)
         toggle.syncState()
 
+        val nav_view :NavigationView = findViewById(R.id.nav_view);
         nav_view.setNavigationItemSelectedListener(this)
     }
 }
