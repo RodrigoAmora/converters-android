@@ -9,12 +9,12 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.converter.TemperatureConverter
-import kotlinx.android.synthetic.main.fragment_celsius_to_farenheit.*
+import kotlinx.android.synthetic.main.fragment_temperture.*
 
 class TemperatureFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_celsius_to_farenheit, container, false)
+        return inflater?.inflate(R.layout.fragment_temperture, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
