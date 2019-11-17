@@ -20,6 +20,10 @@ allprojects {
     }
 }
 
+ext {
+    constraintLayoutVersion = '1.1.3'
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
