@@ -1,4 +1,4 @@
-package br.com.rodrigoamora.converters.extension
+package br.com.rodrigoamora.converters.shared.extension
 
 import android.content.Context
 import android.content.Intent

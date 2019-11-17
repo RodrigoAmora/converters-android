@@ -10,8 +10,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import br.com.rodrigoamora.converters.R
-import br.com.rodrigoamora.converters.extension.changeFragment
-import br.com.rodrigoamora.converters.extension.share
+import br.com.rodrigoamora.converters.shared.extension.changeFragment
+import br.com.rodrigoamora.converters.shared.extension.share
 import br.com.rodrigoamora.converters.ui.fragment.AboutFragment
 import br.com.rodrigoamora.converters.ui.fragment.TemperatureFragment
 import com.google.android.material.navigation.NavigationView
