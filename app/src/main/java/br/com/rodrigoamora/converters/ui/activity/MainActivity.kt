@@ -1,9 +1,11 @@
 package br.com.rodrigoamora.converters.ui.activity
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.WindowManager
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         createToolbarAndNavigationView()
+        navigationBarTransparent()
         changeFragment(TemperatureFragment(), this, R.id.container, null)
     }
 
@@ -102,5 +105,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val nav_view :NavigationView = findViewById(R.id.nav_view);
         nav_view.setNavigationItemSelectedListener(this)
+    }
+
+    private fun navigationBarTransparent() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val w = window
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        }
     }
 }
