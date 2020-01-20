@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
         <EditText
             android:id="@+id/temperature"
-            android:hint="@string/temperture_in_celsius"
+            android:hint="@string/temperature_in_celsius"
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

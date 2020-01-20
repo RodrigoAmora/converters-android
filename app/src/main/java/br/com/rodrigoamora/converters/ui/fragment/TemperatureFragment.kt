@@ -36,11 +36,11 @@ class TemperatureFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        temperature.hint = getString(R.string.temperture_in_celsius)
+                        temperature.hint = getString(R.string.temperature_in_celsius)
                     }
 
                     1 -> {
-                        temperature.hint = getString(R.string.temperture_in_fahrenheit)
+                        temperature.hint = getString(R.string.temperature_in_fahrenheit)
                     }
                 }
             }
