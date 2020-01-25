@@ -12,7 +12,7 @@ import br.com.rodrigoamora.converters.converter.DistanceConverter
 import kotlinx.android.synthetic.main.fragment_distance.*
 import kotlinx.android.synthetic.main.fragment_distance.bt_convert
 import kotlinx.android.synthetic.main.fragment_temperture.*
-import kotlinx.android.synthetic.main.fragment_distance.result as result1
+import kotlinx.android.synthetic.main.fragment_temperture.result as result1
 
 class DistanceFragment : Fragment() {
 
@@ -55,7 +55,18 @@ class DistanceFragment : Fragment() {
 
     private fun convertDistance() {
         val distanceConverter = DistanceConverter()
-        val distanceConverted = distanceConverter.KilometerToMile(distance.text.toString().toDouble())
+        var distanceConverted :Double = 0.0
+
+        when(spinner_convert.selectedItem) {
+            0 -> {
+                distanceConverted = distanceConverter.kilometerToMile(distance.text.toString().toDouble())
+            }
+
+             1 -> {
+                 distanceConverted = distanceConverter.mileToKilometer(distance.text.toString().toDouble())
+             }
+        }
+
         result.text = distanceConverted.toString()
     }
 }
