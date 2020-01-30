@@ -57,7 +57,7 @@ class DistanceFragment : Fragment() {
         val distanceConverter = DistanceConverter()
         var distanceConverted :Double = 0.0
 
-        when(spinner_convert.selectedItem) {
+        when(spinner_convert.selectedItemPosition) {
             0 -> {
                 distanceConverted = distanceConverter.kilometerToMile(distance.text.toString().toDouble())
             }
