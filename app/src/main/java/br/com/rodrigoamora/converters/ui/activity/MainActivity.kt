@@ -26,12 +26,12 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     val TAG_LOG = "converters-android"
-
     var drawer_layout :DrawerLayout ? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         createToolbarAndNavigationView()
         hideNavigationBar()
 
