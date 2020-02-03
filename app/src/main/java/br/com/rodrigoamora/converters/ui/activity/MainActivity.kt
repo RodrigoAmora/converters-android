@@ -1,5 +1,8 @@
 package br.com.rodrigoamora.converters.ui.activity
 
+import android.annotation.TargetApi
+import android.content.pm.ShortcutManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -11,6 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import br.com.rodrigoamora.converters.R
+import br.com.rodrigoamora.converters.extemsion.createShortcutInfos
 import br.com.rodrigoamora.converters.shared.extension.changeFragment
 import br.com.rodrigoamora.converters.shared.extension.share
 import br.com.rodrigoamora.converters.ui.fragment.AboutFragment
@@ -30,7 +34,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         createToolbarAndNavigationView()
         hideNavigationBar()
-        changeFragment(TemperatureFragment(), this, R.id.container, null)
+
+
+        if (Build.VERSION.SDK_INT >= 26) {
+            createShorcuts()
+            checkOptionInIntent()
+        } else {
+            changeFragment(TemperatureFragment(), this, R.id.container, null)
+        }
     }
 
     override fun onBackPressed() {
@@ -113,5 +124,38 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val decorView = window.decorView
         val uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         decorView.systemUiVisibility = uiOptions
+    }
+
+
+    private fun checkOptionInIntent() {
+        val option = intent.getStringExtra("option")
+        if (option != null && !option.isEmpty()) {
+            when(option) {
+                "distance" -> {
+                    changeFragment(DistanceFragment(), this, R.id.container, null)
+                }
+                "temperature" -> {
+                    changeFragment(TemperatureFragment(), this, R.id.container, null)
+                }
+            }
+        } else {
+            changeFragment(TemperatureFragment(), this, R.id.container, null)
+        }
+    }
+
+    @TargetApi(26)
+    private fun createShorcuts() {
+        val shortcutManager = getSystemService<ShortcutManager>(ShortcutManager::class.java!!)
+
+        val shortLabels = arrayOf(getString(R.string.distance), getString(R.string.temperature))
+
+        val disabledMessage = arrayOf(getString(R.string.distance), getString(R.string.temperature))
+
+        val options = arrayOf("distance", "temperature")
+
+        val icons = arrayOf<Int>(R.drawable.ic_shortcut_ic_distance, R.drawable.ic_shortcut_ic_temperature)
+
+        val shortcutInfos = createShortcutInfos(this, shortLabels, disabledMessage, options, icons)
+        shortcutManager.setDynamicShortcuts(shortcutInfos.toMutableList())
     }
 }
