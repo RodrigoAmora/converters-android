@@ -15,7 +15,7 @@ class DistanceConverterTest {
     }
 
     @Test
-    fun kilometerToMile() {
+    fun testConvertKilometerToMile() {
         val distance1 = distanceConverter?.kilometerToMile(1.0)
         assertEquals(0.621371, distance1!!, 0.0001)
 
@@ -24,7 +24,7 @@ class DistanceConverterTest {
     }
 
     @Test
-    fun mileToKilometer() {
+    fun testConvertMileToKilometer() {
         val distance1 = distanceConverter?.mileToKilometer(1.0)
         assertEquals(1.609344, distance1!!, 0.0001)
 
