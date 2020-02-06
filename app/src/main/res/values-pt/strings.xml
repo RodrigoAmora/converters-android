@@ -24,9 +24,9 @@
     <string name="link_app">https://play.google.com/store/apps/details?id=br.com.rodrigoamora.converters</string>
     <string name="kilometers_to_miles">Quilômetros para milhas</string>
     <string name="miles_to_kilometers">Milhas to quilômetros</string>
-    <string name="temperature">Tempertura</string>
-    <string name="temperature_in_celsius">Tempertura em celsius</string>
-    <string name="temperature_in_fahrenheit">Tempertura em fahrenheit</string>
+    <string name="temperature">Temperatura</string>
+    <string name="temperature_in_celsius">Temperatura em celsius</string>
+    <string name="temperature_in_fahrenheit">Temperatura em fahrenheit</string>
     <string name="result">Resultado</string>
     <string name="rodrigo_amora">Rodrigo Amora</string>
     <string name="share">Compartilhar</string>
