@@ -14,7 +14,6 @@ import br.com.rodrigoamora.converters.extemsion.hideKeyboard
 import kotlinx.android.synthetic.main.fragment_temperture.*
 
 
-
 class TemperatureFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -71,6 +70,7 @@ class TemperatureFragment : Fragment() {
             }
         }
 
+        tv_result.visibility = View.VISIBLE
         result.setText(temperatureConverted.toString())
 
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)

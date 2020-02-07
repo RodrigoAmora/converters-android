@@ -12,9 +12,6 @@ import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.converter.DistanceConverter
 import br.com.rodrigoamora.converters.extemsion.hideKeyboard
 import kotlinx.android.synthetic.main.fragment_distance.*
-import kotlinx.android.synthetic.main.fragment_distance.bt_convert
-import kotlinx.android.synthetic.main.fragment_temperture.*
-import kotlinx.android.synthetic.main.fragment_temperture.result as result1
 
 class DistanceFragment : Fragment() {
 
@@ -70,6 +67,7 @@ class DistanceFragment : Fragment() {
              }
         }
 
+        tv_result.visibility = View.VISIBLE
         result.text = distanceConverted.toString()
 
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
