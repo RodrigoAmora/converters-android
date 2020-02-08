@@ -14,11 +14,20 @@ class TemperatureConverterTest {
     }
 
     @Test
-    fun testConvertercelsuisToFahrenheitWithPositiveTemperature() {
+    fun testConverterCelsuisToFahrenheitWithPositiveTemperature() {
         val temperatue1 = temperatureConverter?.celsuisToFahrenheit(10.0);
         val temperatue2 = temperatureConverter?.celsuisToFahrenheit(32.0);
 
         assertEquals(50.0, temperatue1!!, 0.0001)
         assertEquals(89.6, temperatue2!!, 0.0001)
+    }
+
+    @Test
+    fun testConverterCelsuisToFahrenheitWithNegativeTemperature() {
+        val temperatue1 = temperatureConverter?.celsuisToFahrenheit(-15.0);
+        val temperatue2 = temperatureConverter?.celsuisToFahrenheit(-30.0);
+
+        assertEquals(5.0, temperatue1!!, 0.0001)
+        assertEquals(-22.0, temperatue2!!, 0.0001)
     }
 }
