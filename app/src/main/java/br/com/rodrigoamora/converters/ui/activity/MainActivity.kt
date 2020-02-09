@@ -91,7 +91,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Log.i(TAG_LOG, "nav_share clicked")
                 val textSahre = getString(R.string.share_app)+" "+
                                         getString(R.string.link_app)
-                share(this, getString(R.string.app_name), textSahre)
+                share(this, getString(R.string.app_name),
+                                                textSahre)
             }
         }
 
@@ -146,13 +147,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     @TargetApi(26)
     private fun createShorcuts() {
         val shortcutManager = getSystemService<ShortcutManager>(ShortcutManager::class.java!!)
-
         val shortLabels = arrayOf(getString(R.string.distance), getString(R.string.temperature))
-
         val disabledMessage = arrayOf(getString(R.string.distance), getString(R.string.temperature))
-
         val options = arrayOf("distance", "temperature")
-
         val icons = arrayOf<Int>(R.drawable.ic_shortcut_ic_distance, R.drawable.ic_shortcut_ic_temperature)
 
         val shortcutInfos = createShortcutInfos(this, shortLabels, disabledMessage, options, icons)
