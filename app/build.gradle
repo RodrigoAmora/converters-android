@@ -9,8 +9,8 @@ android {
         applicationId "br.com.rodrigoamora.converters"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 9
-        versionName "1.6.1"
+        versionCode 10
+        versionName "1.6.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    // KOTLIN
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     // ANDROID-X
