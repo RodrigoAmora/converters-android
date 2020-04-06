@@ -70,10 +70,10 @@ class TemperatureFragment : Fragment() {
             }
         }
 
-        tv_result.visibility = View.VISIBLE
-        result.setText(temperatureConverted.toString())
-
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
-        result.startAnimation(fadeIn)
+        tv_result.startAnimation(fadeIn)
+
+        tv_result.visibility = View.VISIBLE
+        tv_result.setText(getString(R.string.result, temperatureConverted.toString()))
     }
 }

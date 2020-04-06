@@ -68,9 +68,9 @@ class DistanceFragment : Fragment() {
         }
 
         tv_result.visibility = View.VISIBLE
-        result.text = distanceConverted.toString()
+        tv_result.text = getString(R.string.result, distanceConverted.toString())
 
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
-        result.startAnimation(fadeIn)
+        tv_result.startAnimation(fadeIn)
     }
 }

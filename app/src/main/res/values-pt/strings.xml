@@ -27,7 +27,7 @@
     <string name="temperature">Temperatura</string>
     <string name="temperature_in_celsius">Temperatura em celsius</string>
     <string name="temperature_in_fahrenheit">Temperatura em fahrenheit</string>
-    <string name="result">Resultado</string>
+    <string name="result">Resultado:\n %s</string>
     <string name="rodrigo_amora">Rodrigo Amora</string>
     <string name="share">Compartilhar</string>
     <string name="share_app">Download Conversores na Play Store:</string>
