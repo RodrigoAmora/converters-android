@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.converter.TemperatureConverter
 import br.com.rodrigoamora.converters.extemsion.hideKeyboard
+import br.com.rodrigoamora.converters.shared.extension.valueValidator
 import kotlinx.android.synthetic.main.fragment_temperture.*
 
 
@@ -58,22 +59,31 @@ class TemperatureFragment : Fragment() {
     private fun convertTemperature() {
         val converterSelected = convert.selectedItemPosition
         val temperatureConverter = TemperatureConverter()
-
         var temperatureConverted:Double = 0.0
-        when(converterSelected) {
-            0 -> {
-                temperatureConverted = temperatureConverter.celsuisToFahrenheit(temperature.text.toString().toDouble())
+        val temperatureValue = temperature.text.toString()
+
+        var result = ""
+        if (valueValidator(temperatureValue)) {
+            when (converterSelected) {
+                0 -> {
+                    temperatureConverted = temperatureConverter.celsuisToFahrenheit(temperatureValue.toDouble())
+                }
+
+                1 -> {
+                    temperatureConverted = temperatureConverter.fahrenheitToCelsuis(temperatureValue.toDouble())
+                }
             }
 
-            1 -> {
-                temperatureConverted = temperatureConverter.fahrenheitToCelsuis(temperature.text.toString().toDouble())
-            }
+            result = getString(R.string.result, temperatureConverted.toString())
+        } else {
+            result = getString(R.string.error_value_is_empty)
+            tv_result.setTextColor(resources.getColor(android.R.color.holo_red_dark))
         }
 
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
         tv_result.startAnimation(fadeIn)
 
         tv_result.visibility = View.VISIBLE
-        tv_result.setText(getString(R.string.result, temperatureConverted.toString()))
+        tv_result.setText(result)
     }
 }

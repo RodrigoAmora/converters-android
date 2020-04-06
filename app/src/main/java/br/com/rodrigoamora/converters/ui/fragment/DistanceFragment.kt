@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.converter.DistanceConverter
 import br.com.rodrigoamora.converters.extemsion.hideKeyboard
+import br.com.rodrigoamora.converters.shared.extension.valueValidator
 import kotlinx.android.synthetic.main.fragment_distance.*
 
 class DistanceFragment : Fragment() {
@@ -55,20 +56,29 @@ class DistanceFragment : Fragment() {
 
     private fun convertDistance() {
         val distanceConverter = DistanceConverter()
-        var distanceConverted :Double = 0.0
+        var distanceConverted: Double = 0.0
+        val distanceValue = distance.text.toString()
 
-        when(spinner_convert.selectedItemPosition) {
-            0 -> {
-                distanceConverted = distanceConverter.kilometerToMile(distance.text.toString().toDouble())
+        var result = ""
+        if (valueValidator(distanceValue)) {
+            when (spinner_convert.selectedItemPosition) {
+                0 -> {
+                    distanceConverted = distanceConverter.kilometerToMile(distanceValue.toDouble())
+                }
+
+                1 -> {
+                    distanceConverted = distanceConverter.mileToKilometer(distanceValue.toDouble())
+                }
             }
 
-             1 -> {
-                 distanceConverted = distanceConverter.mileToKilometer(distance.text.toString().toDouble())
-             }
+            result = getString(R.string.result, distanceConverted.toString())
+        } else {
+            result = getString(R.string.error_value_is_empty)
+            tv_result.setTextColor(resources.getColor(android.R.color.holo_red_dark))
         }
 
         tv_result.visibility = View.VISIBLE
-        tv_result.text = getString(R.string.result, distanceConverted.toString())
+        tv_result.text = result
 
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
         tv_result.startAnimation(fadeIn)
