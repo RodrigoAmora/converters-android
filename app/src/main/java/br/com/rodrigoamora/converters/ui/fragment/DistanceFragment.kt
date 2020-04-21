@@ -39,10 +39,10 @@ class DistanceFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        distance.hint = getString(R.string.distance_in_kilometers)
+                        input_distance.hint = getString(R.string.distance_in_kilometers)
                     }
                     1 -> {
-                        distance.hint = getString(R.string.distance_in_miles)
+                        input_distance.hint = getString(R.string.distance_in_miles)
                     }
                 }
             }
@@ -57,7 +57,7 @@ class DistanceFragment : Fragment() {
     private fun convertDistance() {
         val distanceConverter = DistanceConverter()
         var distanceConverted: Double = 0.0
-        val distanceValue = distance.text.toString()
+        val distanceValue = input_distance.text.toString()
 
         var result = ""
         if (valueValidator(distanceValue)) {
