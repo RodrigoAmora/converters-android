@@ -30,9 +30,9 @@ class TemperatureFragment : Fragment() {
         val list = listOf(getString(R.string.celsius_to_fahrenheit), getString(R.string.fahrenheit_to_celsius))
 
         val arrayAdapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, list)
-        convert.setAdapter(arrayAdapter)
+        convert?.setAdapter(arrayAdapter)
 
-        convert.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        convert?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -40,17 +40,17 @@ class TemperatureFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        temperature.hint = getString(R.string.temperature_in_celsius)
+                        temperature?.hint = getString(R.string.temperature_in_celsius)
                     }
 
                     1 -> {
-                        temperature.hint = getString(R.string.temperature_in_fahrenheit)
+                        temperature?.hint = getString(R.string.temperature_in_fahrenheit)
                     }
                 }
             }
         }
 
-        bt_convert.setOnClickListener{
+        bt_convert?.setOnClickListener{
             activity?.let { it1 -> hideKeyboard(it1, bt_convert) }
             convertTemperature()
         }
@@ -60,7 +60,7 @@ class TemperatureFragment : Fragment() {
         val converterSelected = convert.selectedItemPosition
         val temperatureConverter = TemperatureConverter()
         var temperatureConverted:Double = 0.0
-        val temperatureValue = temperature.text.toString()
+        val temperatureValue = temperature?.text.toString()
 
         var result = ""
         if (valueValidator(temperatureValue)) {
@@ -77,13 +77,13 @@ class TemperatureFragment : Fragment() {
             result = getString(R.string.result, temperatureConverted.toString())
         } else {
             result = getString(R.string.error_value_is_empty)
-            tv_result.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+            tv_result?.setTextColor(resources.getColor(android.R.color.holo_red_dark))
         }
 
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
-        tv_result.startAnimation(fadeIn)
+        tv_result?.startAnimation(fadeIn)
 
-        tv_result.visibility = View.VISIBLE
-        tv_result.setText(result)
+        tv_result?.visibility = View.VISIBLE
+        tv_result?.setText(result)
     }
 }

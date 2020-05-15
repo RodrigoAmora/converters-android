@@ -29,7 +29,7 @@ class DistanceFragment : Fragment() {
         val list = listOf(getString(R.string.kilometers_to_miles), getString(R.string.miles_to_kilometers))
 
         val arrayAdapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, list)
-        spinner_convert.setAdapter(arrayAdapter)
+        spinner_convert?.setAdapter(arrayAdapter)
 
         spinner_convert.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -39,16 +39,16 @@ class DistanceFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        input_distance.hint = getString(R.string.distance_in_kilometers)
+                        input_distance?.hint = getString(R.string.distance_in_kilometers)
                     }
                     1 -> {
-                        input_distance.hint = getString(R.string.distance_in_miles)
+                        input_distance?.hint = getString(R.string.distance_in_miles)
                     }
                 }
             }
         }
 
-        bt_convert.setOnClickListener{
+        bt_convert?.setOnClickListener{
             activity?.let { it1 -> hideKeyboard(it1, bt_convert) }
             convertDistance()
         }
@@ -57,11 +57,11 @@ class DistanceFragment : Fragment() {
     private fun convertDistance() {
         val distanceConverter = DistanceConverter()
         var distanceConverted: Double = 0.0
-        val distanceValue = input_distance.text.toString()
+        val distanceValue = input_distance?.text.toString()
 
         var result = ""
         if (valueValidator(distanceValue)) {
-            when (spinner_convert.selectedItemPosition) {
+            when (spinner_convert?.selectedItemPosition) {
                 0 -> {
                     distanceConverted = distanceConverter.kilometerToMile(distanceValue.toDouble())
                 }
@@ -74,13 +74,13 @@ class DistanceFragment : Fragment() {
             result = getString(R.string.result, distanceConverted.toString())
         } else {
             result = getString(R.string.error_value_is_empty)
-            tv_result.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+            tv_result?.setTextColor(resources.getColor(android.R.color.holo_red_dark))
         }
 
-        tv_result.visibility = View.VISIBLE
-        tv_result.text = result
+        tv_result?.visibility = View.VISIBLE
+        tv_result?.text = result
 
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
-        tv_result.startAnimation(fadeIn)
+        tv_result?.startAnimation(fadeIn)
     }
 }
