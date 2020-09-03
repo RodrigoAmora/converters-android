@@ -28,7 +28,7 @@ class DistanceFragment : Fragment() {
     private fun initViews() {
         val list = listOf(getString(R.string.kilometers_to_miles), getString(R.string.miles_to_kilometers))
 
-        val arrayAdapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, list)
+        val arrayAdapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, list) }
         spinner_convert?.setAdapter(arrayAdapter)
 
         spinner_convert.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
