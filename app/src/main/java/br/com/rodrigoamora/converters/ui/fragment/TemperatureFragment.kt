@@ -27,9 +27,9 @@ class TemperatureFragment : Fragment() {
     }
 
     private fun initViews() {
-        val list = listOf(getString(R.string.celsius_to_fahrenheit), getString(R.string.fahrenheit_to_celsius))
+        val temperatureOptions = resources.getStringArray(R.array.distance_options_array)
 
-        val arrayAdapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, list) }
+        val arrayAdapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, temperatureOptions) }
         convert?.setAdapter(arrayAdapter)
 
         convert?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

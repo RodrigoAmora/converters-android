@@ -15,17 +15,20 @@
         <item>Milhas para quilômetros</item>
     </string-array>
 
+    <string-array name="temparature_options_array">
+        <item>Celsuis para Fahrenheit</item>
+        <item>Fahrenheit para Celsuis</item>
+    </string-array>
+
     <string name="about">Sobre</string>
     <string name="communicate">Communicação</string>
     <string name="convert">Converter</string>
-    <string name="celsius_to_fahrenheit">Celsius para Fahrenheit</string>
     <string name="created_by_rodrigo_amora">Criado por Rodrigo Amora</string>
     <string name="distance">Distância</string>
     <string name="distance_in_kilometers">Distância em Quilômetros</string>
     <string name="distance_in_miles">Distância em Milhas</string>
     <string name="developer">Desenvolvedor:</string>
     <string name="email">rodrigo.amora.freitas@gmail.com</string>
-    <string name="fahrenheit_to_celsius">Fahrenheit para Celsius</string>
     <string name="lb_email">E-mail:</string>
     <string name="lb_site">Stie:</string>
     <string name="link_app">https://play.google.com/store/apps/details?id=br.com.rodrigoamora.converters</string>
