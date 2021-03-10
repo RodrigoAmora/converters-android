@@ -26,15 +26,13 @@ class DistanceFragment : Fragment() {
     }
 
     private fun initViews() {
-        val list = listOf(getString(R.string.kilometers_to_miles), getString(R.string.miles_to_kilometers))
+        val distanceOptions = resources.getStringArray(R.array.distance_options_array)
 
-        val arrayAdapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, list) }
+        val arrayAdapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, distanceOptions) }
         spinner_convert?.setAdapter(arrayAdapter)
 
         spinner_convert.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
 
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {

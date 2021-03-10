@@ -9,6 +9,11 @@
 
     <string name="error_value_is_empty">Value is empty!</string>
 
+    <string-array name="distance_options_array">
+        <item>Kilometers to miles</item>
+        <item>Miles to kilometers</item>
+    </string-array>
+
     <string name="about">About</string>
     <string name="communicate">Communicate</string>
     <string name="convert">Convert</string>
@@ -23,8 +28,6 @@
     <string name="lb_email">E-mail:</string>
     <string name="lb_site">Stie:</string>
     <string name="link_app">https://play.google.com/store/apps/details?id=br.com.rodrigoamora.converters</string>
-    <string name="kilometers_to_miles">Kilometers to miles</string>
-    <string name="miles_to_kilometers">Miles to kilometers</string>
     <string name="temperature">Temperature</string>
     <string name="temperature_in_celsius">Temperature in celsius</string>
     <string name="temperature_in_fahrenheit">Temperature in fahrenheit</string>

@@ -10,6 +10,11 @@
 
     <string name="error_value_is_empty">Valor está vazio!</string>
 
+    <string-array name="distance_options_array">
+        <item>Quilômetros para milhas</item>
+        <item>Milhas para quilômetros</item>
+    </string-array>
+
     <string name="about">Sobre</string>
     <string name="communicate">Communicação</string>
     <string name="convert">Converter</string>
@@ -24,8 +29,6 @@
     <string name="lb_email">E-mail:</string>
     <string name="lb_site">Stie:</string>
     <string name="link_app">https://play.google.com/store/apps/details?id=br.com.rodrigoamora.converters</string>
-    <string name="kilometers_to_miles">Quilômetros para milhas</string>
-    <string name="miles_to_kilometers">Milhas to quilômetros</string>
     <string name="temperature">Temperatura</string>
     <string name="temperature_in_celsius">Temperatura em celsius</string>
     <string name="temperature_in_fahrenheit">Temperatura em fahrenheit</string>
