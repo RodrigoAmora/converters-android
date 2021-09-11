@@ -13,6 +13,8 @@ import br.com.rodrigoamora.converters.converter.TemperatureConverter
 import br.com.rodrigoamora.converters.extemsion.hideKeyboard
 import br.com.rodrigoamora.converters.shared.extension.valueValidator
 import kotlinx.android.synthetic.main.fragment_temperture.*
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 
 class TemperatureFragment : Fragment() {
@@ -33,9 +35,7 @@ class TemperatureFragment : Fragment() {
         convert?.setAdapter(arrayAdapter)
 
         convert?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+            override fun onNothingSelected(adapterView: AdapterView<*>?) {}
 
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
@@ -59,18 +59,22 @@ class TemperatureFragment : Fragment() {
     private fun convertTemperature() {
         val converterSelected = convert.selectedItemPosition
         val temperatureConverter = TemperatureConverter()
-        var temperatureConverted:Double = 0.0
         val temperatureValue = temperature?.text.toString()
+        var temperatureConverted: BigDecimal = BigDecimal.ZERO
 
         var result = ""
         if (valueValidator(temperatureValue)) {
             when (converterSelected) {
                 0 -> {
-                    temperatureConverted = temperatureConverter.celsuisToFahrenheit(temperatureValue.toDouble())
+                    temperatureConverted = BigDecimal(temperatureConverter
+                                                        .fahrenheitToCelsuis(temperatureValue.toDouble()))
+                                            .setScale(2, RoundingMode.HALF_EVEN)
                 }
 
                 1 -> {
-                    temperatureConverted = temperatureConverter.fahrenheitToCelsuis(temperatureValue.toDouble())
+                    temperatureConverted = BigDecimal(temperatureConverter
+                                                        .fahrenheitToCelsuis(temperatureValue.toDouble()))
+                                            .setScale(2, RoundingMode.HALF_EVEN)
                 }
             }
 
@@ -82,7 +86,6 @@ class TemperatureFragment : Fragment() {
 
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
         tv_result?.startAnimation(fadeIn)
-
         tv_result?.visibility = View.VISIBLE
         tv_result?.setText(result)
     }
