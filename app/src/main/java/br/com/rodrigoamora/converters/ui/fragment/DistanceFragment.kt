@@ -26,7 +26,7 @@ class DistanceFragment : Fragment() {
     }
 
     private fun initViews() {
-        val distanceOptions = resources.getStringArray(R.array.distance_options_array)
+        val distanceOptions = resources.getStringArray(R.array.array_distance_options)
 
         val arrayAdapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, distanceOptions) }
         spinner_convert?.setAdapter(arrayAdapter)

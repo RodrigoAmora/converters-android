@@ -10,7 +10,7 @@
 
     <string name="error_value_is_empty">Valor está vazio!</string>
 
-    <string-array name="distance_options_array">
+    <string-array name="array_distance_options">
         <item>Quilômetros para milhas</item>
         <item>Milhas para quilômetros</item>
     </string-array>

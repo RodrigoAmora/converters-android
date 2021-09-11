@@ -9,7 +9,7 @@
 
     <string name="error_value_is_empty">Value is empty!</string>
 
-    <string-array name="distance_options_array">
+    <string-array name="array_distance_options">
         <item>Kilometers to miles</item>
         <item>Miles to kilometers</item>
     </string-array>
