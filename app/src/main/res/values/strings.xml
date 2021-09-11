@@ -14,7 +14,7 @@
         <item>Miles to kilometers</item>
     </string-array>
 
-    <string-array name="temparature_options_array">
+    <string-array name="array_temperature_options">
         <item>Celsuis to Fahrenheit</item>
         <item>Fahrenheit to Celsuis</item>
     </string-array>
