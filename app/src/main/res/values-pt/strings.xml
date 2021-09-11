@@ -16,8 +16,8 @@
     </string-array>
 
     <string-array name="array_temperature_options">
-        <item>Celsuis para Fahrenheit</item>
-        <item>Fahrenheit para Celsuis</item>
+        <item>Celsius para Fahrenheit</item>
+        <item>Fahrenheit para Celsius</item>
     </string-array>
 
     <string name="about">Sobre</string>

@@ -29,7 +29,7 @@ class TemperatureFragment : Fragment() {
     }
 
     private fun initViews() {
-        val temperatureOptions = resources.getStringArray(R.array.temparature_options_array)
+        val temperatureOptions = resources.getStringArray(R.array.array_temperature_options)
 
         val arrayAdapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, temperatureOptions) }
         convert?.setAdapter(arrayAdapter)
