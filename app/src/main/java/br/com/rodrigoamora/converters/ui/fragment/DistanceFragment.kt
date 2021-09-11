@@ -13,6 +13,8 @@ import br.com.rodrigoamora.converters.converter.DistanceConverter
 import br.com.rodrigoamora.converters.extemsion.hideKeyboard
 import br.com.rodrigoamora.converters.shared.extension.valueValidator
 import kotlinx.android.synthetic.main.fragment_distance.*
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class DistanceFragment : Fragment() {
 
@@ -54,18 +56,22 @@ class DistanceFragment : Fragment() {
 
     private fun convertDistance() {
         val distanceConverter = DistanceConverter()
-        var distanceConverted: Double = 0.0
         val distanceValue = input_distance?.text.toString()
+        var distanceConverted: BigDecimal = BigDecimal.ZERO
 
         var result = ""
         if (valueValidator(distanceValue)) {
             when (spinner_convert?.selectedItemPosition) {
                 0 -> {
-                    distanceConverted = distanceConverter.kilometerToMile(distanceValue.toDouble())
+                    distanceConverted = BigDecimal(distanceConverter
+                                                    .kilometerToMile(distanceConverted.toDouble()))
+                                            .setScale(2, RoundingMode.HALF_EVEN)
                 }
 
                 1 -> {
-                    distanceConverted = distanceConverter.mileToKilometer(distanceValue.toDouble())
+                    distanceConverted = BigDecimal(distanceConverter
+                                                    .mileToKilometer(distanceConverted.toDouble()))
+                                            .setScale(2, RoundingMode.HALF_EVEN)
                 }
             }
 
