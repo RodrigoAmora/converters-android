@@ -1,7 +1,7 @@
 package br.com.rodrigoamora.converters.converter
 
 class TemperatureConverter {
-    fun celsuisToFahrenheit(celsius: Double): Double {
+    fun celsiusToFahrenheit(celsius: Double): Double {
         return (celsius * 9/5) + 32
     }
 
