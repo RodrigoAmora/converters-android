@@ -67,13 +67,13 @@ class TemperatureFragment : Fragment() {
             when (converterSelected) {
                 0 -> {
                     temperatureConverted = BigDecimal(temperatureConverter
-                                                        .fahrenheitToCelsuis(temperatureValue.toDouble()))
+                                                        .fahrenheitToCelsius(temperatureValue.toDouble()))
                                             .setScale(2, RoundingMode.HALF_EVEN)
                 }
 
                 1 -> {
                     temperatureConverted = BigDecimal(temperatureConverter
-                                                        .fahrenheitToCelsuis(temperatureValue.toDouble()))
+                                                        .fahrenheitToCelsius(temperatureValue.toDouble()))
                                             .setScale(2, RoundingMode.HALF_EVEN)
                 }
             }
