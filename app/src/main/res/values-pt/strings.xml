@@ -20,6 +20,10 @@
         <item>Fahrenheit para Celsius</item>
     </string-array>
 
+    <string-array name="array_roman_decimal_number">
+        <item>Decimal para Número Romano</item>
+    </string-array>/
+
     <string name="about">Sobre</string>
     <string name="communicate">Communicação</string>
     <string name="convert">Converter</string>
@@ -37,6 +41,7 @@
     <string name="temperature_in_fahrenheit">Temperatura em fahrenheit</string>
     <string name="result">Resultado:\n %s</string>
     <string name="rodrigo_amora">Rodrigo Amora</string>
+    <string name="roman_number">Algarismo Romano</string>
     <string name="share">Compartilhar</string>
     <string name="share_app">Download Conversores na Play Store:</string>
     <string name="site">Site: www.rodrigoamora.com.br</string>

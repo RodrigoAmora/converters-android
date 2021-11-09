@@ -19,6 +19,7 @@ import br.com.rodrigoamora.converters.shared.extension.changeFragment
 import br.com.rodrigoamora.converters.shared.extension.share
 import br.com.rodrigoamora.converters.ui.fragment.AboutFragment
 import br.com.rodrigoamora.converters.ui.fragment.DistanceFragment
+import br.com.rodrigoamora.converters.ui.fragment.RomanNumberFragment
 import br.com.rodrigoamora.converters.ui.fragment.TemperatureFragment
 import com.google.android.material.navigation.NavigationView
 
@@ -86,6 +87,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_temperature -> {
                 Log.i(TAG_LOG, "nav_temperature clicked")
                 changeFragment(TemperatureFragment(), this, R.id.container, null)
+            }
+            R.id.nav_roman_number -> {
+                Log.i(TAG_LOG, "nav_distance clicked")
+                changeFragment(RomanNumberFragment(), this, R.id.container, null)
             }
             R.id.nav_share -> {
                 Log.i(TAG_LOG, "nav_share clicked")
