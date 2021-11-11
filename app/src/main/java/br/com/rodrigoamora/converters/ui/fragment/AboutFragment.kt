@@ -23,7 +23,7 @@ class AboutFragment : Fragment() {
     fun getVersionName(): String {
         try {
             val packageManager = activity?.packageManager
-            val pInfo = packageManager?.getPackageInfo(activity?.packageName, 0)
+            val pInfo = activity?.packageName?.let { packageManager?.getPackageInfo(it, 0) }
             return pInfo?.versionName.toString()
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace();
