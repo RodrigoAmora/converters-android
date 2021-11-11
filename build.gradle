@@ -21,6 +21,8 @@ allprojects {
 }
 
 ext {
+    androidxVersion = '1.0.0'
+    appcompatVersion = '1.1.0'
     constraintLayoutVersion = '1.1.3'
 }
 

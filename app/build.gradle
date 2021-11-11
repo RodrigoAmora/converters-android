@@ -41,12 +41,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     // ANDROID-X
-    def androidx = '1.0.0'
-    implementation "androidx.appcompat:appcompat:1.1.0"
-    implementation "com.google.android.material:material:$androidx"
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
+    implementation "com.google.android.material:material:$rootProject.androidxVersion"
 
     // CONSTRAINT-LAYOUT
-    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
     // TESTS
     testImplementation 'junit:junit:4.12'
