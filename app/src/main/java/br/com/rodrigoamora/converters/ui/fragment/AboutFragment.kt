@@ -17,7 +17,7 @@ class AboutFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        lb_version.setText(getVersionName().toString())
+        lb_version.text = getVersionName()
     }
 
     fun getVersionName(): String {
@@ -26,8 +26,8 @@ class AboutFragment : Fragment() {
             val pInfo = activity?.packageName?.let { packageManager?.getPackageInfo(it, 0) }
             return pInfo?.versionName.toString()
         } catch (e: PackageManager.NameNotFoundException) {
-            e.printStackTrace();
-            return "";
+            e.printStackTrace()
+            return ""
         }
     }
 }
