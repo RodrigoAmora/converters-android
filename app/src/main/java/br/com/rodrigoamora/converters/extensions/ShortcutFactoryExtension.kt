@@ -1,4 +1,4 @@
-package br.com.rodrigoamora.converters.extemsion
+package br.com.rodrigoamora.converters.extensions
 
 import android.annotation.TargetApi
 import android.content.Context

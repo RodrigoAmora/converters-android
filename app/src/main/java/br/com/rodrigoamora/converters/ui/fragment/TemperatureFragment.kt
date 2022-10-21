@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.converter.TemperatureConverter
-import br.com.rodrigoamora.converters.extemsion.hideKeyboard
+import br.com.rodrigoamora.converters.extensions.hideKeyboard
 import br.com.rodrigoamora.converters.shared.extension.valueValidator
 import kotlinx.android.synthetic.main.fragment_temperture.*
 import java.math.BigDecimal

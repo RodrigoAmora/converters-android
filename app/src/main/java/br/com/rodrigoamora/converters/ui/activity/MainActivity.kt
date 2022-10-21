@@ -14,7 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import br.com.rodrigoamora.converters.R
-import br.com.rodrigoamora.converters.extemsion.createShortcutInfos
+import br.com.rodrigoamora.converters.extensions.createShortcutInfos
 import br.com.rodrigoamora.converters.shared.extension.changeFragment
 import br.com.rodrigoamora.converters.shared.extension.share
 import br.com.rodrigoamora.converters.ui.fragment.AboutFragment
