@@ -1,5 +1,6 @@
 package br.com.rodrigoamora.converters.di
 
+import br.com.rodrigoamora.converters.ui.viewmodel.DistanceViewModel
 import br.com.rodrigoamora.converters.ui.viewmodel.TemperatureViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.GlobalContext
@@ -16,5 +17,6 @@ private val loadFeature by lazy {
 }
 
 val viewModelModule = module {
+    viewModel { DistanceViewModel() }
     viewModel { TemperatureViewModel() }
 }

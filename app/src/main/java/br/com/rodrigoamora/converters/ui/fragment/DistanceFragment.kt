@@ -11,17 +11,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import br.com.rodrigoamora.converters.R
-import br.com.rodrigoamora.converters.converter.DistanceConverter
 import br.com.rodrigoamora.converters.databinding.FragmentDistanceBinding
-import br.com.rodrigoamora.converters.extensions.hideKeyboard
-import br.com.rodrigoamora.converters.extensions.valueValidator
+import br.com.rodrigoamora.converters.delegate.ViewDelegate
 import br.com.rodrigoamora.converters.ui.activity.MainActivity
-import java.math.BigDecimal
-import java.math.RoundingMode
+import br.com.rodrigoamora.converters.ui.viewmodel.DistanceViewModel
+import br.com.rodrigoamora.converters.util.KeyboardUtil
+import org.koin.android.ext.android.inject
 
-class DistanceFragment: Fragment() {
+class DistanceFragment: Fragment(), ViewDelegate {
 
     private var _binding: FragmentDistanceBinding? = null
     private val binding get() = _binding!!
@@ -31,18 +31,16 @@ class DistanceFragment: Fragment() {
     private lateinit var spinnerConvert: Spinner
     private lateinit var tvResult: TextView
 
+    private val distanceViewModel: DistanceViewModel by inject()
     private val mainActivity by lazy {
         activity as MainActivity
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentDistanceBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         this.initViews()
+        this.setDelegate()
+        return binding.root
     }
 
     private fun initViews() {
@@ -72,42 +70,41 @@ class DistanceFragment: Fragment() {
 
         this.btConvert = binding.btConvert
         this.btConvert.setOnClickListener{
-            mainActivity?.let { it1 -> hideKeyboard(it1, btConvert) }
+            mainActivity.let { it1 -> KeyboardUtil.hideKeyboard(it1, btConvert) }
             convertDistance()
         }
     }
 
-    private fun convertDistance() {
-        val distanceConverter = DistanceConverter()
-        val distanceValue = inputDistance?.text.toString()
-        var distanceConverted: BigDecimal = BigDecimal.ZERO
+    private fun setDelegate() {
+        this.distanceViewModel.setDelegate(this)
+    }
 
-        var result = ""
-        if (valueValidator(distanceValue)) {
+    private fun convertDistance() {
+        val distanceTyped = inputDistance.text.toString()
+
+        if (distanceTyped.isNotEmpty()) {
             when (spinnerConvert.selectedItemPosition) {
                 0 -> {
-                    distanceConverted = BigDecimal(distanceConverter
-                                                    .kilometerToMile(distanceConverted.toDouble()))
-                                            .setScale(2, RoundingMode.HALF_EVEN)
+                    this.distanceViewModel.kilometerToMile(distanceTyped.toDouble())
                 }
 
                 1 -> {
-                    distanceConverted = BigDecimal(distanceConverter
-                                                    .mileToKilometer(distanceConverted.toDouble()))
-                                            .setScale(2, RoundingMode.HALF_EVEN)
+                    this.distanceViewModel.mileToKilometer(distanceTyped.toDouble())
                 }
             }
-
-            result = getString(R.string.result, distanceConverted.toString())
         } else {
-            result = getString(R.string.error_value_is_empty)
-            tvResult.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+            this.showError(getString(R.string.error_value_is_empty))
         }
+    }
 
-        tvResult.visibility = View.VISIBLE
-        tvResult.text = result
+    override fun showError(message: String) {
+        Toast.makeText(this.mainActivity, message, Toast.LENGTH_LONG).show()
+    }
 
+    override fun showResult(result: String) {
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
-        tvResult.startAnimation(fadeIn)
+        this.tvResult.startAnimation(fadeIn)
+        this.tvResult.visibility = View.VISIBLE
+        this.tvResult.text = result
     }
 }
