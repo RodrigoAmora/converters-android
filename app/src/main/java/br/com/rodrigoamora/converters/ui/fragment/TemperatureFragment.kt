@@ -40,13 +40,9 @@ class TemperatureFragment: Fragment(), ViewDelegate {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentTempertureBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         this.initViews()
         this.setDelegate()
+        return binding.root
     }
 
     private fun initViews() {
