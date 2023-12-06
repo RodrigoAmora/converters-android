@@ -7,34 +7,50 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.converter.TemperatureConverter
+import br.com.rodrigoamora.converters.databinding.FragmentTempertureBinding
 import br.com.rodrigoamora.converters.extensions.hideKeyboard
-import br.com.rodrigoamora.converters.shared.extension.valueValidator
-import kotlinx.android.synthetic.main.fragment_temperture.*
+import br.com.rodrigoamora.converters.extensions.valueValidator
 import java.math.BigDecimal
 import java.math.RoundingMode
 
 
 class TemperatureFragment : Fragment() {
 
+    private var _binding: FragmentTempertureBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var btConvert: Button
+    private lateinit var temperature: EditText
+    private lateinit var tvResult: TextView
+    private lateinit var spinnerConvert: Spinner
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_temperture, container, false)
+        _binding = FragmentTempertureBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        initViews()
+        this.initViews()
     }
 
     private fun initViews() {
         val temperatureOptions = resources.getStringArray(R.array.array_temperature_options)
 
-        val arrayAdapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, temperatureOptions) }
-        convert?.setAdapter(arrayAdapter)
+        tvResult = binding.tvResult
 
-        convert?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        val arrayAdapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, temperatureOptions) }
+        spinnerConvert = binding.convert
+        spinnerConvert.adapter = arrayAdapter
+
+        spinnerConvert.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(adapterView: AdapterView<*>?) {}
 
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -50,14 +66,15 @@ class TemperatureFragment : Fragment() {
             }
         }
 
-        bt_convert?.setOnClickListener{
-            activity?.let { it1 -> hideKeyboard(it1, bt_convert) }
+        btConvert = binding.btConvert
+        btConvert?.setOnClickListener{
+            activity?.let { it1 -> hideKeyboard(it1, btConvert) }
             convertTemperature()
         }
     }
 
     private fun convertTemperature() {
-        val converterSelected = convert.selectedItemPosition
+        val converterSelected = spinnerConvert.selectedItemPosition
         val temperatureConverter = TemperatureConverter()
         val temperatureValue = temperature?.text.toString()
         var temperatureConverted: BigDecimal = BigDecimal.ZERO
@@ -81,12 +98,12 @@ class TemperatureFragment : Fragment() {
             result = getString(R.string.result, temperatureConverted.toString())
         } else {
             result = getString(R.string.error_value_is_empty)
-            tv_result?.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+            tvResult.setTextColor(resources.getColor(android.R.color.holo_red_dark))
         }
 
         val fadeIn = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
-        tv_result?.startAnimation(fadeIn)
-        tv_result?.visibility = View.VISIBLE
-        tv_result?.setText(result)
+        tvResult.startAnimation(fadeIn)
+        tvResult.visibility = View.VISIBLE
+        tvResult.text = result
     }
 }
