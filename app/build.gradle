@@ -62,6 +62,9 @@ dependencies {
     // CONSTRAINT-LAYOUT
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
 
+    // KOIN
+    implementation "io.insert-koin:koin-android:3.4.3"
+
     // MATERIAL-DESIGN
     implementation "com.google.android.material:material:1.10.0"
 
