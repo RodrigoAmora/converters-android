@@ -14,3 +14,11 @@ fun Double.formatTemperatureInCelsius(): String {
 fun Double.formatTemperatureInFahrenheit(): String {
     return "$this ºF"
 }
+
+fun Double.formatDistanceInKilometer(): String {
+    return "$this km"
+}
+
+fun Double.formatDistanceInMile(): String {
+    return "$this mi"
+}
