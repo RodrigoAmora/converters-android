@@ -54,11 +54,11 @@ class TemperatureFragment: BaseFragment(), ViewDelegate {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        temperature?.hint = getString(R.string.temperature_in_celsius)
+                        temperature.hint = getString(R.string.temperature_in_celsius)
                     }
 
                     1 -> {
-                        temperature?.hint = getString(R.string.temperature_in_fahrenheit)
+                        temperature.hint = getString(R.string.temperature_in_fahrenheit)
                     }
                 }
             }
@@ -66,7 +66,7 @@ class TemperatureFragment: BaseFragment(), ViewDelegate {
 
         this.btConvert = binding.btConvert
         this.btConvert.setOnClickListener{
-            activity?.let { it1 -> KeyboardUtil.hideKeyboard(it1, btConvert) }
+            KeyboardUtil.hideKeyboard(mainActivity, btConvert)
             convertTemperature()
         }
     }
