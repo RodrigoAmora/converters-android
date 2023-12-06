@@ -1,4 +1,4 @@
-package br.com.rodrigoamora.converters.shared.extension
+package br.com.rodrigoamora.converters.extensions
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
