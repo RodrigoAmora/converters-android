@@ -2,17 +2,15 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'kotlin-android-extensions'
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "br.com.rodrigoamora.converters"
-        minSdkVersion 23
-        targetSdkVersion 30
+        minSdkVersion 26
+        targetSdkVersion 33
         versionCode 14
         versionName "1.8.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -40,27 +38,28 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
     }
 }
 
 dependencies {
-    // KOTLIN
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    //Kotlin Standard Library
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0'
 
     // ANDROID-X
-    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
-    implementation "com.google.android.material:material:$rootProject.androidxVersion"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.10.0"
 
     // CONSTRAINT-LAYOUT
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
 
     // TESTS
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-    // MODULES
-    implementation project(path: ':shared')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
