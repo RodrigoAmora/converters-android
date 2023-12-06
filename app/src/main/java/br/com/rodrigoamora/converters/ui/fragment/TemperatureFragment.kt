@@ -104,8 +104,6 @@ class TemperatureFragment: Fragment(), ViewDelegate {
         } else {
             this.showError(getString(R.string.error_value_is_empty))
         }
-
-
     }
 
     override fun showError(message: String) {
