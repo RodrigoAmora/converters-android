@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.databinding.FragmentTempertureBinding
 import br.com.rodrigoamora.converters.delegate.ViewDelegate
-import br.com.rodrigoamora.converters.extensions.valueValidator
 import br.com.rodrigoamora.converters.ui.activity.MainActivity
 import br.com.rodrigoamora.converters.ui.viewmodel.TemperatureViewModel
 import br.com.rodrigoamora.converters.util.KeyboardUtil
@@ -84,10 +83,9 @@ class TemperatureFragment: Fragment(), ViewDelegate {
 
     private fun convertTemperature() {
         val converterSelected = spinnerConvert.selectedItemPosition
-
         val temperatureTyped = temperature.text.toString()
 
-        if (valueValidator(temperatureTyped)) {
+        if (temperatureTyped.isNotEmpty()) {
             when (converterSelected) {
                 0 -> {
                     this.temperatureViewModel.celsiusToFahrenheit(temperatureTyped.toDouble())
