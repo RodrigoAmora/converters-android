@@ -11,18 +11,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.databinding.FragmentTempertureBinding
 import br.com.rodrigoamora.converters.delegate.ViewDelegate
-import br.com.rodrigoamora.converters.ui.activity.MainActivity
 import br.com.rodrigoamora.converters.ui.viewmodel.TemperatureViewModel
 import br.com.rodrigoamora.converters.util.KeyboardUtil
 import org.koin.android.ext.android.inject
 
 
-class TemperatureFragment: Fragment(), ViewDelegate {
+class TemperatureFragment: BaseFragment(), ViewDelegate {
 
     private var _binding: FragmentTempertureBinding? = null
     private val binding get() = _binding!!
@@ -33,9 +30,6 @@ class TemperatureFragment: Fragment(), ViewDelegate {
     private lateinit var spinnerConvert: Spinner
 
     private val temperatureViewModel: TemperatureViewModel by inject()
-    private val mainActivity: MainActivity by lazy {
-        activity as MainActivity
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentTempertureBinding.inflate(inflater, container, false)
@@ -101,7 +95,7 @@ class TemperatureFragment: Fragment(), ViewDelegate {
     }
 
     override fun showError(message: String) {
-        Toast.makeText(this.mainActivity, message, Toast.LENGTH_LONG).show()
+        this.showToast(message)
     }
 
     override fun showResult(result: String) {

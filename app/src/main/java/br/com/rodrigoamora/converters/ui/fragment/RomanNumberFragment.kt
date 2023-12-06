@@ -11,17 +11,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import br.com.rodrigoamora.converters.R
 import br.com.rodrigoamora.converters.databinding.FragmentRomanNumberBinding
 import br.com.rodrigoamora.converters.delegate.ViewDelegate
-import br.com.rodrigoamora.converters.ui.activity.MainActivity
 import br.com.rodrigoamora.converters.ui.viewmodel.RomanNumberViewModel
 import br.com.rodrigoamora.converters.util.KeyboardUtil
 import org.koin.android.ext.android.inject
 
-class RomanNumberFragment: Fragment(), ViewDelegate {
+class RomanNumberFragment: BaseFragment(), ViewDelegate {
 
     private var _binding: FragmentRomanNumberBinding? = null
     private val binding get() = _binding!!
@@ -32,9 +29,7 @@ class RomanNumberFragment: Fragment(), ViewDelegate {
     private lateinit var spinnerConvert: Spinner
 
     private val romanNumberViewModel: RomanNumberViewModel by inject()
-    private val mainActivity by lazy {
-        activity as MainActivity
-    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentRomanNumberBinding.inflate(inflater, container, false)
@@ -94,7 +89,7 @@ class RomanNumberFragment: Fragment(), ViewDelegate {
     }
 
     override fun showError(message: String) {
-        Toast.makeText(this.mainActivity, message, Toast.LENGTH_LONG).show()
+        this.showToast(message)
     }
 
     override fun showResult(result: String) {
