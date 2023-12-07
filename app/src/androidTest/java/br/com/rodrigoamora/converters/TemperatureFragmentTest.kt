@@ -47,6 +47,27 @@ class TemperatureFragmentTest {
     }
 
     @Test
+    fun testCelsiusToFahrenheitWithNegativeTemperature() {
+        Espresso
+            .onView(ViewMatchers.withId(R.id.temperature))
+            .perform(ViewActions.click())
+            .perform(ViewActions.typeText("-10"))
+
+        Espresso
+            .onView(ViewMatchers.withId(R.id.bt_convert))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+        Espresso
+            .onView(ViewMatchers.withId(R.id.bt_convert))
+            .perform(ViewActions.click())
+
+        Espresso
+            .onView(ViewMatchers.withId(R.id.tv_result))
+            .check(ViewAssertions.matches(ViewMatchers.withText("14.0 ºF")))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
+
+    @Test
     fun testFahrenheitToCelsius() {
         Espresso
             .onView(ViewMatchers.withId(R.id.temperature))
@@ -71,6 +92,34 @@ class TemperatureFragmentTest {
         Espresso
             .onView(ViewMatchers.withId(R.id.tv_result))
             .check(ViewAssertions.matches(ViewMatchers.withText("37.78 ºC")))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
+
+    @Test
+    fun testFahrenheitToCelsiusWithNegativeTemperature() {
+        Espresso
+            .onView(ViewMatchers.withId(R.id.temperature))
+            .perform(ViewActions.click())
+            .perform(ViewActions.typeText("-10"))
+
+        Espresso
+            .onData(anything())
+            .inAdapterView(ViewMatchers.withId(R.id.convert))
+            .atPosition(1)
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+
+        Espresso
+            .onView(ViewMatchers.withId(R.id.bt_convert))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+        Espresso
+            .onView(ViewMatchers.withId(R.id.bt_convert))
+            .perform(ViewActions.click())
+
+        Espresso
+            .onView(ViewMatchers.withId(R.id.tv_result))
+            .check(ViewAssertions.matches(ViewMatchers.withText("-23.33 ºC")))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
