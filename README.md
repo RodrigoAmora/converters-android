@@ -18,7 +18,7 @@ Author:
 LinkedIn: https://linkedin.com/in/rodrigoamora <br>
 E-mail: rodrigo.amora.freitas@gmail.com
 
-Accessing the projet:
----------------------
+Accessing the project:
+----------------------
 Available on Play Store: <br>
 https://play.google.com/store/apps/details?id=br.com.rodrigoamora.converters
